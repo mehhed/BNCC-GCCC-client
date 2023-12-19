@@ -1,6 +1,7 @@
 import Nav from "./nabbar/Nav";
 import Fotter from "./footer/Fotter";
 import { Outlet } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 function App() {
   return (
     <div className="h-screen w-full flex flex-col">

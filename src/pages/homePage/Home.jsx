@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   return (
@@ -8,6 +9,10 @@ const Home = () => {
         src="../../../public/Trendy Website Homepage Accessories Sale Banner (1).png"
         alt=""
       />
+      {/* helmet for title  */}
+      <Helmet>
+        <title>BNCC Gov. city college chattogram | Home</title>
+      </Helmet>
     </section>
   );
 };
