@@ -1,59 +1,128 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { BiSolidUser } from "react-icons/bi";
+import { AiOutlineClose } from "react-icons/ai";
+import { HiOutlineMenu } from "react-icons/hi";
 
 const Nav = () => {
+  const [navbar, setnavbar] = useState(false);
   return (
-    <div className="navbar  w-screen sticky top-0 left-0 px-5 bg-gray-300">
-      <div className="flex-1">
-        <Link to={"/"}>
+    <div className=" py-4 w-screen sticky top-0 left-0 px-5 bg-gray-300 z-50">
+      <div className="flex justify-between items-center h-full w-full">
+        <div className="text-white text-2xl md:text-3xl flex-1">
           <img
-            className="h-10 w-10 rounded-full"
-            src="https://scontent.fcgp17-1.fna.fbcdn.net/v/t39.30808-6/272830507_1389139564850909_1844613196509865249_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeFFZGAHF15Ju9cRUPaER9OTbb6Z3hvoek5tvpneG-h6TloRph36dnbjCjJkuMjXHhqkgCNF1syctbpWU0wvIBoh&_nc_ohc=u657z53Zvn4AX8OdJkj&_nc_ht=scontent.fcgp17-1.fna&oh=00_AfBMQY0RGGsi-g6JR1swFtCYQEDXtBJO-yhLb116T294DA&oe=658620FB"
-            alt="BNCC logo"
+            className="w-10 h-10 rounded-full"
+            src="../../public/logo.png"
+            alt=""
           />
-        </Link>
-      </div>
-      <div className="flex-none gap-2">
-        <ul className="flex justify-center items-center gap-5">
-          <li>
-            <Link to={"/"}>Home</Link>
-          </li>
-          <li>
-            <Link to={"/"}>Home</Link>
-          </li>
-          <li>
-            <Link to={"/"}>Home</Link>
-          </li>
-          <li>
-            <Link to={"/"}>Home</Link>
-          </li>
-        </ul>
-        <div className="dropdown dropdown-end">
-          <div
-            tabIndex={0}
-            role="button"
-            className="btn btn-ghost btn-circle avatar">
-            <div className="w-10 rounded-full">
-              <img
-                alt="Tailwind CSS Navbar component"
-                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-              />
-            </div>
-          </div>
-          <ul
-            tabIndex={0}
-            className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-            <li>
-              <a className="justify-between">
-                Profile
-                <span className="badge">New</span>
-              </a>
+        </div>
+        <div
+          onClick={() => {
+            setnavbar(!navbar);
+          }}
+          className="lg:hidden cursor-pointer text-2xl flex justify-end flex-1 text-white">
+          {navbar ? <AiOutlineClose /> : <HiOutlineMenu />}
+        </div>
+        <div
+          className={`lg:flex  flex-1 ${
+            navbar ? "block" : "hidden"
+          } absolute lg:static top-full left-0 w-full bg-[#20232d] lg:bg-transparent justify-end z-40`}>
+          <ul className="flex flex-col lg:flex-row lg:justify-end justify-start gap-x-5 lg:items-center text-white">
+            <li className="lg:my-1 my-1">
+              <NavLink
+                onClick={() => {
+                  setnavbar(!navbar);
+                }}
+                to={`/`}
+                className={({ isActive, isPending }) =>
+                  isActive
+                    ? "active text-[#15fffd]"
+                    : isPending
+                    ? "pending"
+                    : "block lg:inline-block"
+                }>
+                Home
+              </NavLink>
             </li>
-            <li>
-              <a>Settings</a>
+            <li className="lg:my-1 my-1">
+              <NavLink
+                onClick={() => {
+                  setnavbar(!navbar);
+                }}
+                to={`/About`}
+                className={({ isActive, isPending }) =>
+                  isActive
+                    ? "active text-[#15fffd]"
+                    : isPending
+                    ? "pending"
+                    : ""
+                }>
+                About
+              </NavLink>
             </li>
-            <li>
-              <a>Logout</a>
+            <li className="lg:my-1 my-1">
+              <NavLink
+                onClick={() => {
+                  setnavbar(!navbar);
+                }}
+                to={`/Service`}
+                className={({ isActive, isPending }) =>
+                  isActive
+                    ? "active text-[#15fffd]"
+                    : isPending
+                    ? "pending"
+                    : ""
+                }>
+                Service
+              </NavLink>
+            </li>
+            <li className="lg:my-1 my-1">
+              <NavLink
+                onClick={() => {
+                  setnavbar(!navbar);
+                }}
+                to={`/Project`}
+                className={({ isActive, isPending }) =>
+                  isActive
+                    ? "active text-[#15fffd]"
+                    : isPending
+                    ? "pending"
+                    : ""
+                }>
+                Project
+              </NavLink>
+            </li>
+            <li className="lg:my-1 my-1">
+              <NavLink
+                onClick={() => {
+                  setnavbar(!navbar);
+                }}
+                to={`/Contact`}
+                className={({ isActive, isPending }) =>
+                  isActive
+                    ? "active text-[#15fffd]"
+                    : isPending
+                    ? "pending"
+                    : ""
+                }>
+                Contact
+              </NavLink>
+            </li>
+            <li className="lg:my-1 my-1">
+              <NavLink
+                onClick={() => {
+                  setnavbar(!navbar);
+                }}
+                to={`/login`}
+                className={({ isActive, isPending }) =>
+                  isActive
+                    ? "active text-[#15fffd]"
+                    : isPending
+                    ? "pending "
+                    : ""
+                }>
+                <BiSolidUser></BiSolidUser>
+              </NavLink>
             </li>
           </ul>
         </div>
